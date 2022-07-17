@@ -1,0 +1,84 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backend", "backend\Backend.csproj", "{7D3D7037-4B2B-49B8-A449-B035E891D8BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frontend", "frontend\Frontend.csproj", "{57955965-38F9-431D-A67E-C4E24181111C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{4EB53752-32DD-45DB-B1AD-CFD60A471FE6}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\build.bat = scripts\build.bat
+		scripts\push.bat = scripts\push.bat
+		scripts\test.bat = scripts\test.bat
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "UI\UI.csproj", "{B36B52DA-74FF-49EC-B07A-7C626BB64B08}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deployments", "Deployments", "{5CF57F70-E62F-4D96-8133-766E50BFD53D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kubernetes", "Kubernetes", "{9A0784D3-178A-411D-89F4-16F44C7336C9}"
+	ProjectSection(SolutionItems) = preProject
+		deployments\kubernetes\backend.yml = deployments\kubernetes\backend.yml
+		deployments\kubernetes\consul.yml = deployments\kubernetes\consul.yml
+		deployments\kubernetes\defaults.yml = deployments\kubernetes\defaults.yml
+		deployments\kubernetes\frontend.yml = deployments\kubernetes\frontend.yml
+		deployments\kubernetes\install.bat = deployments\kubernetes\install.bat
+		deployments\kubernetes\namespace.yml = deployments\kubernetes\namespace.yml
+		deployments\kubernetes\port-forward-backend.bat = deployments\kubernetes\port-forward-backend.bat
+		deployments\kubernetes\port-forward-consul.bat = deployments\kubernetes\port-forward-consul.bat
+		deployments\kubernetes\port-forward-frontend.bat = deployments\kubernetes\port-forward-frontend.bat
+		deployments\kubernetes\port-forward-services.bat = deployments\kubernetes\port-forward-services.bat
+		deployments\kubernetes\uninstall.bat = deployments\kubernetes\uninstall.bat
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{6138378D-F1DD-4AFC-9818-04DF2248D2C3}"
+	ProjectSection(SolutionItems) = preProject
+		deployments\docker\backend.json = deployments\docker\backend.json
+		deployments\docker\consul.json = deployments\docker\consul.json
+		deployments\docker\docker-compose.yml = deployments\docker\docker-compose.yml
+		deployments\docker\frontend.json = deployments\docker\frontend.json
+		deployments\docker\defaults\global-defaults.json = deployments\docker\defaults\global-defaults.json
+		deployments\docker\install.bat = deployments\docker\install.bat
+		deployments\docker\uninstall.bat = deployments\docker\uninstall.bat
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows", "Windows", "{387BCA2E-082B-4527-9AF2-B07601A9F518}"
+	ProjectSection(SolutionItems) = preProject
+		deployments\windows\backend.json = deployments\windows\backend.json
+		deployments\windows\consul.json = deployments\windows\consul.json
+		deployments\windows\frontend.json = deployments\windows\frontend.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D3D7037-4B2B-49B8-A449-B035E891D8BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D3D7037-4B2B-49B8-A449-B035E891D8BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D3D7037-4B2B-49B8-A449-B035E891D8BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D3D7037-4B2B-49B8-A449-B035E891D8BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57955965-38F9-431D-A67E-C4E24181111C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57955965-38F9-431D-A67E-C4E24181111C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57955965-38F9-431D-A67E-C4E24181111C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57955965-38F9-431D-A67E-C4E24181111C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B36B52DA-74FF-49EC-B07A-7C626BB64B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B36B52DA-74FF-49EC-B07A-7C626BB64B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B36B52DA-74FF-49EC-B07A-7C626BB64B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B36B52DA-74FF-49EC-B07A-7C626BB64B08}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9A0784D3-178A-411D-89F4-16F44C7336C9} = {5CF57F70-E62F-4D96-8133-766E50BFD53D}
+		{6138378D-F1DD-4AFC-9818-04DF2248D2C3} = {5CF57F70-E62F-4D96-8133-766E50BFD53D}
+		{387BCA2E-082B-4527-9AF2-B07601A9F518} = {5CF57F70-E62F-4D96-8133-766E50BFD53D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06827479-5E31-47D1-856E-D71515BE76E4}
+	EndGlobalSection
+EndGlobal

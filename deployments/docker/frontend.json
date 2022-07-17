@@ -1,0 +1,37 @@
+{
+  "service": [
+    {
+      "id": "frontend",
+      "name": "frontend",
+      "address": "10.10.0.11",
+      "port": 80,
+      "connect": [
+        {
+          "sidecar_service": [
+            {
+              "check": [
+                {
+                  "name": "Connect Envoy Sidecar",
+                  "tcp": "10.10.0.11:20000",
+                  "interval": "10s"
+                }
+              ],
+              "port": 20000,
+              "proxy": [
+                {
+                  "upstreams": [
+                    {
+                      "destination_name": "backend",
+                      "local_bind_address": "127.0.0.1",
+                      "local_bind_port": 8080
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

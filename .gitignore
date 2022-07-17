@@ -348,3 +348,10 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/deployments/windows/frontend/node-id
+/deployments/windows/frontend/serf/local.snapshot
+/deployments/windows/nginx/checkpoint-signature
+/deployments/windows/nginx/node-id
+/deployments/windows/nginx/serf/local.snapshot
+/deployments/windows/test/node-id
+/deployments/windows/test/serf/local.snapshot

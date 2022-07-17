@@ -1,0 +1,1 @@
+kubectl port-forward service/backend 8090:80 -n prototype

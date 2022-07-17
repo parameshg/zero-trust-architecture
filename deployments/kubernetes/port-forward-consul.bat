@@ -1,0 +1,1 @@
+kubectl port-forward service/consul-server --namespace consul 8500:8500

@@ -1,0 +1,21 @@
+{
+  "node_name": "server",
+  "server": true,
+  "bootstrap": true,
+  "bootstrap_expect": 1,
+  "datacenter": "docker-compose",
+  "data_dir": "/tmp",
+  "log_level": "INFO",
+  "connect": { "enabled": true },
+  "ui_config": { "enabled": true },
+  "bind_addr": "0.0.0.0",
+  "client_addr": "0.0.0.0",
+  "advertise_addr": "10.10.0.10",
+  "ports": { "grpc": 8502 },
+  "enable_central_service_config": true,
+  "acl": {
+    "enabled": false,
+    "default_policy": "deny",
+    "enable_token_persistence": true
+  }
+}

@@ -1,0 +1,11 @@
+global:
+  name: consul
+  datacenter: kubernetes
+server:
+  replicas: 1
+ui:
+  enabled: true
+connectInject:
+  enabled: true
+controller:
+  enabled: true

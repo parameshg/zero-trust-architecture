@@ -1,0 +1,26 @@
+{
+  "service": [
+    {
+      "id": "backend",
+      "name": "backend",
+      "address": "10.10.0.12",
+      "port": 80,
+      "connect": [
+        {
+          "sidecar_service": [
+            {
+              "check": [
+                {
+                  "name": "Connect Envoy Sidecar",
+                  "tcp": "10.10.0.12:20000",
+                  "interval": "10s"
+                }
+              ],
+              "port": 20000
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

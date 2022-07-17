@@ -1,0 +1,81 @@
+version: "3.3"
+services:
+  consul:
+    image: consul:1.9.0
+    command: ["consul","agent","-config-file=/config/consul.json"]
+    volumes:
+      - ".:/config"
+    ports:
+      - 8500:8500
+    networks:
+      zerotrust:
+        ipv4_address: 10.10.0.10
+
+  frontend:
+    image: parameshg/zerotrust-prototype-frontend-api:latest
+    ports:
+      - "8080:80"
+    environment:
+      Backend: "http://localhost:8080"
+    networks:
+      zerotrust:
+        ipv4_address: 10.10.0.11
+    depends_on:
+      - consul
+
+  frontend_proxy:
+    image: joatmon08/consul-envoy:v1.9.0-v1.16.0
+    restart: always
+    environment:
+      CONSUL_HTTP_ADDR: 10.10.0.10:8500
+      CONSUL_GRPC_ADDR: 10.10.0.10:8502
+      SERVICE_CONFIG: /config/frontend.json
+      CENTRAL_CONFIG_DIR: /defaults
+    volumes:
+      - ".:/config"
+      - "./defaults:/defaults"
+    command: ["consul", "connect", "envoy","-sidecar-for", "frontend"]
+    network_mode: "service:frontend"
+    depends_on:
+      - frontend
+
+  backend:
+    image: parameshg/zerotrust-prototype-backend-api:latest
+    ports:
+      - "8090:80"
+    networks:
+      zerotrust:
+        ipv4_address: 10.10.0.12
+    depends_on:
+      - consul
+
+  backend_proxy:
+    image: joatmon08/consul-envoy:v1.9.0-v1.16.0
+    restart: always
+    environment:
+      CONSUL_HTTP_ADDR: 10.10.0.10:8500
+      CONSUL_GRPC_ADDR: 10.10.0.10:8502
+      SERVICE_CONFIG: /config/backend.json
+      CENTRAL_CONFIG_DIR: /defaults
+    volumes:
+      - ".:/config"
+      - "./defaults:/defaults"
+    command: ["consul", "connect", "envoy","-sidecar-for", "backend"]
+    network_mode: "service:backend"
+    depends_on:
+      - backend
+
+  debug:
+    image: nicolaka/netshoot:latest
+    restart: always
+    command: ["bash"]
+    networks:
+      zerotrust:
+        ipv4_address: 10.10.0.100
+
+networks:
+  zerotrust:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.10.0.0/16

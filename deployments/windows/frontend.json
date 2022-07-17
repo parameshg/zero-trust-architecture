@@ -1,0 +1,7 @@
+{
+    "data_dir": "frontend",
+    "service": {
+        "name": "frontend",
+        "port": 8080
+    }
+}

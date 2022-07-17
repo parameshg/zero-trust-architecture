@@ -1,0 +1,7 @@
+{
+    "data_dir": "backend",
+    "service": {
+        "name": "backend",
+        "port": 8090
+    }
+}
